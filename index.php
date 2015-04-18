@@ -17,7 +17,7 @@ session_start();
 <div id="content">
     
 </div>
- 
+ <a href="google.com">Google.com</a>
 <?php if(isSet($_SESSION['userId'])){ ?>
 <script>
     AjaxRequests.getFiles("content");
