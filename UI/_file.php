@@ -1,5 +1,7 @@
 <?php
 session_start();
+define('__ROOT__', dirname(dirname(__FILE__))); 
+require (__ROOT__.'/Scripts/UI_helper.php');
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -13,10 +15,7 @@ session_start();
     <form action="../Scripts/file.php" method="POST" enctype="multipart/form-data">
         <input name="file" type="file"> 
         <input name="description" type="text" placeholder="File description">
-        <select name="fileType">
-          <option value="1">Photo</option>
-          <option value="2">Audio</option>
-        </select>
+        <?php fileTypeAsSelect();?>
         <button>Create new</button>
     </form>
     <?php } else {?>
