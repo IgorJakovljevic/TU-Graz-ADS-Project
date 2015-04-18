@@ -22,6 +22,7 @@ var AjaxRequests = {
             if(result.files[i].fileType === "1"){
                 DOMElement.innerHTML += '<img class="image" src="'+result.files[i].location + '"/>';
             }
+            
             if(result.files[i].fileType === "2"){
             var audioElement = "";
             audioElement += '<audio class="audio" controls>';
@@ -31,6 +32,17 @@ var AjaxRequests = {
             audioElement += '</audio>';
             DOMElement.innerHTML += audioElement;
             }
+            
+            if(result.files[i].fileType === "3"){
+            var videoElement = "";
+            videoElement += '<video class="video" controls>';
+            videoElement += '<source src="';
+            videoElement +=  result.files[i].location;
+            videoElement += '" type="video/mp4">';
+            videoElement += '</video>';
+            DOMElement.innerHTML += videoElement;
+            }
+            
             DOMElement.innerHTML += "<br/><br/>";
         }
         }

@@ -1,7 +1,11 @@
 .image{
-    max-height: 100px;
+    max-height: 150px;
 }
 
 .audio{
     max-width: 180px;
+}
+
+.video {
+    max-height: 150px;
 }
