@@ -26,8 +26,8 @@ case 'POST':
     $content = $_POST['content'];
     $fileId = $_POST['fileId'];
     
-    if($stmt = $conn->prepare("INSERT INTO comments (content, Users_id, File_id) VALUES(?, ?, ?)") ){
-        $stmt->bind_param("ssii", $content, $_SESSION['userId'], $fileId);
+    if($stmt = $conn->prepare("INSERT INTO comment (content, Users_id, File_id) VALUES(?, ?, ?)") ){
+        $stmt->bind_param("ssi", $content, $_SESSION['userId'], $fileId);
         $stmt->execute();
         $stmt->close();
     }
