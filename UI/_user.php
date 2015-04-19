@@ -9,20 +9,18 @@ session_start();
 </head>
 
 <body>
-    <?php if(isSet($_SESSION['userId'])){ ?>
-    <form action="../Scripts/type.php" method="POST">
-        <input name="name" type="text" placeholder="File type name">
-        <button>Create new</button>
+
+    <form action="../Scripts/user.php" method="POST">
+        <input name="username" type="text" placeholder="username">
+        <input name="firstname" type="text" placeholder="firstname">
+        <input name="lastname" type="text" placeholder="lastname">
+        <input name="email" type="text" placeholder="email">
+        <input name="phoneNumber" type="text" placeholder="phoneNumber">
+        <input name="password" type="text" placeholder="password">
+        
+        <button>Create new User</button>
     </form>
-    <?php } else {
-    $host  = $_SERVER['HTTP_HOST'];
-    $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-    $extra = 'Errors/403.html';
-    header("Location: http://$host$uri/$extra");
-    } ?>
-    
-<script>
-    AjaxRequests.getFiles("content");
-</script> 
+   
+     
 </body>
 </html>
