@@ -1,0 +1,159 @@
+@charset"UTF-8";
+
+/*
+class( .class-name ) name -> first-second-third
+    Vise objekata > ect. Products
+
+Id ( #idName ) name -> firstSecondThird
+    Jedan objekat > ext. Header / Footer
+
+Ne koristi float!!!!! 
+
+div style="text/align:center"
+    -> child div style="display> block or inline-block"
+
+Za centriranje koristi margin : auto
+
+
+*/
+
+
+/*----------user.html----------------*/
+
+
+#top{ /*top-menu*/
+    background-color:cornsilk;
+    height: 115px;
+    width: auto;
+    min-width: 720px;
+    margin-bottom: 5px;
+    border: 2px solid #333;
+     
+}
+
+#box{ /*content*/
+    background-color:azure;
+    height: 460px;
+    width: 720px;
+    margin: 0 auto;
+    border: 2px solid #333;
+    text-align: center;
+    position: relative;
+}
+
+.button{ 
+    text-align: center;
+    display: inline-block;
+    left: 110px;
+    right: 500px;
+    top: 400px;
+    margin: auto;
+    position: relative;   
+}
+
+#bottom{ /*footer*/
+    background-color: antiquewhite;
+    height: 115px;
+    width: auto;
+    min-width: 720px;
+    margin-top: 5px;
+    border: 2px solid #333;
+}
+
+
+/*----------products.html-------------*/
+
+body{
+    overflow-y: scroll;   
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    font-size: 16px;
+    background-color: #F1F1F1;
+    height: 1440px;
+}
+
+#nav{
+    background-color: #325678;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+#nav a{
+    color:cornflowerblue;
+    text-decoration: none;
+    font-size: 26px;
+}
+
+#nav-wrapper{
+    width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#nav ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#nav li {
+    padding-left: 10px;   
+}
+
+#nav ul li  {
+    display: inline-block;
+
+}
+
+#nav  ul  li a:hover{
+    background-color: #F1F1F1 ; 
+}
+
+
+#nav ul li a;visited{
+    display: block;
+    padding: 15px;
+    color: #CCC;
+    text-decoration: none;
+}
+
+#wrapper{
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+
+#content{
+    background-color: azure;
+    border: 2px solid #DDD;
+    padding: 15px;
+    margin: 45px 5px 15px 5px;
+    height: 1700px;
+}
+
+#footer{
+    background-color: cadetblue;
+    text-align: center;
+    height: 45px;
+    width: auto;
+    
+}
+
+/*#content{
+    background-color: antiquewhite;
+    display: inline-block;
+    max-height: 250px;
+    padding: 15px;
+    overflow : scroll;
+    overflow-x: hidden;
+
+}
+
+    `.product-block img{}
+
+    `.product-block audio{}
+
+    `.product-block video{}
