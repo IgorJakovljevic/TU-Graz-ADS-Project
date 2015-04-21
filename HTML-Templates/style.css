@@ -80,57 +80,29 @@ body{
     top: 0;
 }
 
-#nav a{
-    color:cornflowerblue;
-    text-decoration: none;
-    font-size: 26px;
-}
-
-#nav-wrapper{
-    width: 960px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#nav ul{
-    list-style-type: none;
+#nav img{ /*--Logo button--*/
+    width:45px;
+    height:36px;
     padding: 0;
-    margin: 0;
-}
+    display:inline-block;
+    margin: 5px 8px 0 8px;
+    position: static;
+}  
 
-#nav li {
-    padding-left: 10px;   
-}
-
-#nav ul li  {
-    display: inline-block;
-
-}
-
-#nav  ul  li a:hover{
-    background-color: #F1F1F1 ; 
-}
-
-
-#nav ul li a;visited{
-    display: block;
-    padding: 15px;
-    color: #CCC;
-    text-decoration: none;
+#nav img:hover{
+    background-color: #3a638a;
 }
 
 #wrapper{
     width: 100%;
     margin: 0 auto;
-    text-align: left;
 }
 
-
-#content{
+.content{
     background-color: azure;
     border: 2px solid #DDD;
     padding: 15px;
-    margin: 45px 5px 15px 5px;
+    margin: 55px 5px 15px 5px;
     height: 1700px;
 }
 
@@ -139,9 +111,82 @@ body{
     text-align: center;
     height: 45px;
     width: auto;
+    text-decoration: none;
+    list-style-type: none;
     
 }
 
+#f-wrapper{
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    list-style-type: none;
+    
+}
+
+#footer a{ /*-- Font style--*/
+    color:black;
+    text-decoration: none;
+    font-size: 16px;   
+}
+
+#footer a:hover{
+    color: aliceblue;   
+}
+
+#footer ul li  {
+    display: inline-block;
+
+    
+/*--search bar--*/
+    
+
+    
+.search {
+    padding:0;
+    background:rgba(50, 50, 50, 0.2);
+    border:0px solid #dbdbdb;
+    position: absolute;
+}
+    
+.button {
+    position:relative;
+    padding:6px 15px;
+    left:-8px;
+    border:2px solid #207cca;
+    background-color:#207cca;
+    color:#fafafa;
+}   
+.button:hover  {
+    background-color:#fafafa;
+    color:#207cca;
+}
+
+::-moz-placeholder { /* For Mozilla Firefox 19+ */
+    color: #dd3333;
+    font-family:Helvetica Neue;
+    font-weight:bold;
+}
+
+::-webkit-input-placeholder { /* For WebKit browsers */
+    color:    #dd3333;
+    font-family:Helvetica Neue;
+    font-weight:bold;
+}
+
+:-ms-input-placeholder { /* For Internet Explorer 10+ */
+    color:    #dd3333;
+    font-family:Helvetica Neue;
+    font-weight:bold;
+}   
+    
+    
+/*-- Log In--*/
+    
+.Login{ 
+    
+}
 /*#content{
     background-color: antiquewhite;
     display: inline-block;
