@@ -64,104 +64,140 @@ Za centriranje koristi margin : auto
 /*----------products.html-------------*/
 
 body{
-    overflow-y: scroll;   
-    margin: 0;
+    margin:0;
     padding: 0;
     font-family: Arial;
     font-size: 16px;
     background-color: #F1F1F1;
-    height: 1440px;
+    width: 100%;
 }
 
 #nav{
-    background-color: #325678;
-    position: fixed;
+    background-color:#2980b9;
     width: 100%;
     top: 0;
 }
+    .search {
+    padding:0;
+    background:rgba(50, 50, 50, 0.2);
+    border:0 solid #dbdbdb;
+    position: sticky;
+    right: 43%;
+    margin:0; 
+    max-width: 250px;
+    float: right;
+        margin: 15px 0 0 0 ;
+    }
+    
+    .button {
+    position:relative;
+    padding:6px 15px;
+    left:-px;
+    border:2px solid #207cca;
+    background-color:#207cca;
+    color:#fafafa;
+    }   
+    .button:hover  {
+    background-color:#fafafa;
+    color:#207cca;
+     
+    }
 
 #nav img{ /*--Logo button--*/
     width:45px;
-    height:36px;
+    height:45px;
     padding: 0;
-    display:inline-block;
     margin: 5px 8px 0 8px;
     position: static;
 }  
 
 #nav img:hover{
-    background-color: #3a638a;
+    background-color: #3498db;
 }
 
 #wrapper{
     width: 100%;
-    margin: 0 auto;
+    margin:0;
+    background-color: azure;
+    border: 2px solid #DDD;
+    margin: 5px 0 5px 0;
+    display: block;
+    height: 630px;
+    overflow : scroll;
+    overflow-x: hidden;
+    
 }
 
 .content{
-    background-color: azure;
-    border: 2px solid #DDD;
-    padding: 15px;
-    margin: 55px 5px 15px 5px;
-    height: 1700px;
+  
 }
 
+.text{
+    background-color: #1abc9c;
+    max-height: 270px;
+    max-width: 290px;
+    margin: 5px 10px 5px 17px;
+    overflow : scroll;
+    float: left;
+    border-left: 2px solid #333;
+    border-bottom: 2px solid #333;
+    border-top: 2px solid #333;
+    border-right: 1px solid #333;
+
+}
+
+.image{
+    background-color: #ecf0f1;
+    max-height: 240px;
+    max-width: 240px;
+    margin: 5px;
+    float: left;
+    border: 3px solid #8e44ad;
+    
+}
+
+.audio{
+    background-color: #95a5a6;
+    max-height: 25px;
+    max-width: 300px;
+    margin: 5px;
+    float: left;
+    border: 3px solid #2c3e50;
+}
+
+.video{
+    background-color: #f1c40f;
+    max-height: 240px;
+    max-width: 320px;
+    margin: 5px;
+    float: left;
+    border: 3px solid #e74c3c;
+}
+
+/*
+.product-block img{
+    display: inline-block;
+}
+
+.product-block audio{
+    display: inline-block;
+}
+
+.product-block video{
+    display: inline-block;
+}
+*/
 #footer{
-    background-color: cadetblue;
+    background-color: #7f8c8d;
     text-align: center;
     height: 45px;
     width: auto;
-    text-decoration: none;
-    list-style-type: none;
-    
 }
 
-#f-wrapper{
-    max-width: 450px;
-    width: 100%;
-    text-align: center;
-    display: inline-block;
-    list-style-type: none;
-    
-}
-
-#footer a{ /*-- Font style--*/
-    color:black;
-    text-decoration: none;
-    font-size: 16px;   
-}
-
-#footer a:hover{
-    color: aliceblue;   
-}
-
-#footer ul li  {
-    display: inline-block;
-
-    
-/*--search bar--*/
-    
-
-    
-.search {
-    padding:0;
-    background:rgba(50, 50, 50, 0.2);
-    border:0px solid #dbdbdb;
-    position: absolute;
+.f-footer{
+    margin-top: 5px;   
 }
     
-.button {
-    position:relative;
-    padding:6px 15px;
-    left:-8px;
-    border:2px solid #207cca;
-    background-color:#207cca;
-    color:#fafafa;
-}   
-.button:hover  {
-    background-color:#fafafa;
-    color:#207cca;
-}
 
 ::-moz-placeholder { /* For Mozilla Firefox 19+ */
     color: #dd3333;
@@ -182,11 +218,7 @@ body{
 }   
     
     
-/*-- Log In--*/
-    
-.Login{ 
-    
-}
+
 /*#content{
     background-color: antiquewhite;
     display: inline-block;
