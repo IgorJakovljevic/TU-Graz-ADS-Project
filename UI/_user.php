@@ -19,8 +19,7 @@ session_start();
         <input name="password" type="text" placeholder="password">
         
         <button>Create new User</button>
-    </form>
-   
+    </form>  
      
 </body>
 </html>
