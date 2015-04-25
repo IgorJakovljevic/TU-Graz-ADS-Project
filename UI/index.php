@@ -8,21 +8,24 @@ session_start();
 <script type="text/javascript" src="../Scripts/Javascript/AJAX-Requests.js"></script>
 </head> 
 <body>
-<nav>
+<nav id="navigation">
+    <button onclick='AjaxRequests.getFiles("content")'>Home</button>
+    <?php if(!isSet($_SESSION['userId'])){ ?>
+    <button id="login" onclick='AjaxRequests.setLoginForm("content")'>Login</button>
+    <?php } else {?>
+     <button id="uploadfile" onclick='AjaxRequests.setUploadFileForm("content")'>Upload File</button>
+     <button id="logout" onclick='AjaxRequests.logoutUser()'>Logout</button>
+    <?php }?>
+
 </nav>
-<?php if(!isSet($_SESSION['userId'])){ ?>
-<div>Login to use the page</div>
-<a href="UI/_administration.php">Login</a>
-<?php }?>
+    
 <div id="content">
     
 </div>
- <a href="google.com">Google.com</a>
-<?php if(isSet($_SESSION['userId'])){ ?>
+
 <script>
     AjaxRequests.getFiles("content");
 </script> 
-<?php }?>
-    
+  
 </body>
 </html>

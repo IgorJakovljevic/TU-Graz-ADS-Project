@@ -20,6 +20,7 @@ case 'GET':
     $result->close();
     }
     break;
+    
 case 'POST': 
     // Save Audio file to db
     $description = $_POST['description'];
@@ -46,7 +47,18 @@ case 'POST':
     }
     
     break;
+    
+case 'DELETE':
+    $id = $_REQUEST['id'];
+    
+    if($stmt = $conn->prepare("DELETE FROM file WHERE id = ?") ){
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
+    }
 
+    break;
+    
 default:
     $returnVal = json_encode(array('error' => "Page has not been found."));
     echo $returnVal;
