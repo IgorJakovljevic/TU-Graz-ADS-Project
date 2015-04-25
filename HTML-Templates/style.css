@@ -73,7 +73,7 @@ body{
 }
 
 #nav{
-    background-color:#2980b9;
+    background-color:#16a085;
     width: 100%;
     top: 0;
 }
@@ -118,7 +118,7 @@ body{
 #wrapper{
     width: 100%;
     margin:0;
-    background-color: azure;
+    background-color: white;
     border: 2px solid #DDD;
     margin: 5px 0 5px 0;
     display: block;
@@ -132,46 +132,32 @@ body{
   
 }
 
-.text{
-    background-color: #1abc9c;
-    max-height: 270px;
-    max-width: 290px;
-    margin: 5px 10px 5px 17px;
-    overflow : scroll;
-    float: left;
-    border-left: 2px solid #333;
-    border-bottom: 2px solid #333;
-    border-top: 2px solid #333;
-    border-right: 1px solid #333;
-
-}
-
 .image{
     background-color: #ecf0f1;
     max-height: 240px;
-    max-width: 240px;
-    margin: 5px;
+    max-width: 260px;
+    margin: 5px 15px 5px 30px;
     float: left;
-    border: 3px solid #8e44ad;
+    border: 3px solid #95a5a6;
     
 }
 
 .audio{
-    background-color: #95a5a6;
-    max-height: 25px;
+    background-color: #ecf0f1;
+    max-height: 240px;
     max-width: 300px;
-    margin: 5px;
+    margin: 5px 15px 5px 30px;
     float: left;
     border: 3px solid #2c3e50;
+    
 }
 
 .video{
-    background-color: #f1c40f;
     max-height: 240px;
     max-width: 320px;
-    margin: 5px;
+    margin: 5px 15px 5px 30px;
     float: left;
-    border: 3px solid #e74c3c;
+    border: 3px solid #7f8c8d;
 }
 
 /*
@@ -188,14 +174,15 @@ body{
 }
 */
 #footer{
-    background-color: #7f8c8d;
+    background-color: #16a085;
     text-align: center;
     height: 45px;
     width: auto;
 }
 
 .f-footer{
-    margin-top: 5px;   
+    margin-top: 5px;  
+    padding-top: 13px;
 }
     
 
