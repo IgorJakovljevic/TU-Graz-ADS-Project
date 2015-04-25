@@ -26,12 +26,11 @@ var AjaxRequests = {
         document.getElementById(htmlNodeElement).innerHTML = "";
         for(var i = 0; i < itemsLength; i++){ 
             var DOMElement =  document.createElement("div");
-            DOMElement.setAttribute('id','file-'+result.files[i].id)
-            
+            DOMElement.setAttribute('id','file-'+result.files[i].id);
+            DOMElement.setAttribute('class', 'image');
             if(result.files[i].fileType === "1"){
-                DOMElement.innerHTML += '<img class="image" src="../'+result.files[i].location + '"/>';
+                DOMElement.innerHTML += '<img src="../'+result.files[i].location + '"/>';
                 var deleteButton = document.createElement("button");
-                deleteButton.innerHTML = "Delete";
                 deleteButton.setAttribute("onclick",'AjaxRequests.deleteFile("'+result.files[i].id+'")');
                 DOMElement.appendChild(deleteButton);
             }
@@ -214,12 +213,12 @@ var AjaxRequests = {
              document.getElementById('login').remove();
                 
              var logoutbutton = document.createElement("button");
-             logoutbutton.innerHTML="Logout";
+
              logoutbutton.setAttribute('onclick','AjaxRequests.logoutUser()')
              logoutbutton.setAttribute('id','logout')
              
              var uploadbutton = document.createElement("button");
-             uploadbutton.innerHTML="Upload File";
+
              uploadbutton.setAttribute('onclick','AjaxRequests.setUploadFileForm("content")')
              uploadbutton.setAttribute('id','uploadfile')
              
@@ -253,7 +252,7 @@ var AjaxRequests = {
              document.getElementById('uploadfile').remove();   
                 
              var loginbutton = document.createElement("button");
-             loginbutton.innerHTML="Login";
+
              loginbutton.setAttribute('onclick','AjaxRequests.setUploadFileForm("content")')
              loginbutton.setAttribute('id','login');
                 
