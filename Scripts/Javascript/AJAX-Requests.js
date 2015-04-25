@@ -27,8 +27,9 @@ var AjaxRequests = {
         for(var i = 0; i < itemsLength; i++){ 
             var DOMElement =  document.createElement("div");
             DOMElement.setAttribute('id','file-'+result.files[i].id);
-            DOMElement.setAttribute('class', 'image');
+           
             if(result.files[i].fileType === "1"){
+                DOMElement.setAttribute('class', 'image');
                 DOMElement.innerHTML += '<img src="../'+result.files[i].location + '"/>';
                 var deleteButton = document.createElement("button");
                 deleteButton.setAttribute("onclick",'AjaxRequests.deleteFile("'+result.files[i].id+'")');
@@ -36,17 +37,21 @@ var AjaxRequests = {
             }
             
             if(result.files[i].fileType === "2"){
-            var audioElement = "";
-            audioElement += '<audio class="audio" controls>';
-            audioElement += '<source src="../';
-            audioElement += result.files[i].location;
-            audioElement += '" type="audio/mpeg" />';
-            audioElement += '</audio>';
-            DOMElement.innerHTML += audioElement;
+                DOMElement.setAttribute('class', 'audio');
+                var audioElement = '<img src="Icons/note.png" height="240" width="260">';
+                audioElement += '<audio controls>';
+                audioElement += '<source src="../';
+                audioElement += result.files[i].location;
+                audioElement += '" type="audio/mpeg" />';
+                audioElement += '</audio>';               
+                DOMElement.innerHTML += audioElement;
+                var deleteButton = document.createElement("button");
+                deleteButton.setAttribute("onclick",'AjaxRequests.deleteFile("'+result.files[i].id+'")');
+                 DOMElement.appendChild(deleteButton);
             }
             
             if(result.files[i].fileType === "3"){
-            var videoElement = "";
+            var videoElement = '';
             videoElement += '<video class="video" controls>';
             videoElement += '<source src="../';
             videoElement +=  result.files[i].location;
@@ -222,6 +227,10 @@ var AjaxRequests = {
              uploadbutton.setAttribute('onclick','AjaxRequests.setUploadFileForm("content")')
              uploadbutton.setAttribute('id','uploadfile')
              
+             var userbutton = document.createElement("button");
+             userbutton.setAttribute('id','user')
+             
+            document.getElementById('navigation').appendChild(userbutton);
              document.getElementById('navigation').appendChild(uploadbutton);
              document.getElementById('navigation').appendChild(logoutbutton);
                 
@@ -249,11 +258,12 @@ var AjaxRequests = {
           if (xmlhttp.readyState==4 && xmlhttp.status==200)
             {
              document.getElementById('logout').remove();
+             document.getElementById('user').remove();
              document.getElementById('uploadfile').remove();   
                 
              var loginbutton = document.createElement("button");
 
-             loginbutton.setAttribute('onclick','AjaxRequests.setUploadFileForm("content")')
+             loginbutton.setAttribute('onclick','AjaxRequests.setLoginForm("content")')
              loginbutton.setAttribute('id','login');
                 
              

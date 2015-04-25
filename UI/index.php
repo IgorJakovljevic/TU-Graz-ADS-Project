@@ -13,6 +13,7 @@ session_start();
     <?php if(!isSet($_SESSION['userId'])){ ?>
     <button id="login" onclick='AjaxRequests.setLoginForm("content")'></button>
     <?php } else {?>
+     <button id="user"></button>
      <button id="uploadfile" onclick='AjaxRequests.setUploadFileForm("content")'></button>
      <button id="logout" onclick='AjaxRequests.logoutUser()'>
     </button>
