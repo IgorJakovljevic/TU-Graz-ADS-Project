@@ -1,0 +1,28 @@
+<html><head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</style>
+<link rel="stylesheet" type="text/css" href="chrome-extension://aedmpdookgbneegaeajpoldpnpfbpmlb/css/page.css?r=6593441.78084606"></head> 
+<body cz-shortcut-listen="true">
+<nav id="navigation">
+    <button id="home" onclick="AjaxRequests.getFiles(&quot;content&quot;)"></button>
+        
+    
+<button id="user"></button><button onclick="AjaxRequests.setUploadFileForm(&quot;content&quot;)" id="uploadfile"></button><button onclick="AjaxRequests.logoutUser()" id="logout"></button></nav>
+
+<div id="content"><form action="../Scripts/file.php" method="POST" enctype="multipart/form-data">
+        <input id="file" name="file" type="file"> 
+        <input name="description" type="text" placeholder="File description">
+        <select name="fileType">
+            <option value="1">Photo</option>
+            <option value="2">Audio</option>
+        </select>
+        <button type="button" onclick="AjaxRequests.updateFile()">Upload new File</button>
+    </form></div>
+   
+
+<script>
+    AjaxRequests.getFiles("content");
+</script> 
+  
+
+<div style="display:none;" id="px_data"><span id="px_path">chrome-extension://aedmpdookgbneegaeajpoldpnpfbpmlb/</span><span id="px_techs"></span><span id="px_show"></span></div></body></html>

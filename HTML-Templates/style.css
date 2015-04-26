@@ -20,6 +20,9 @@ Za centriranje koristi margin : auto
 
 /*----------user.html----------------*/
 
+body{
+    overflow: hidden;
+}
 
 #top{ /*top-menu*/
     background-color:cornsilk;
@@ -72,7 +75,7 @@ body{
     width: 100%;
 }
 
-#nav{
+#navigation{
     background-color:#16a085;
     width: 100%;
     top: 0;
@@ -103,7 +106,7 @@ body{
      
     }
 
-#nav img{ /*--Logo button--*/
+#navigation img{ /*--Logo button--*/
     width:45px;
     height:45px;
     padding: 0;
@@ -111,45 +114,92 @@ body{
     position: static;
 }  
 
-#nav img:hover{
+#navigation img:hover{
     background-color: #3498db;
 }
 
-#wrapper{
+#content{
     width: 100%;
     margin:0;
     background-color: white;
     border: 2px solid #DDD;
     margin: 5px 0 5px 0;
     display: block;
-    height: 630px;
+    height: 450px;
     overflow : scroll;
     overflow-x: hidden;
     
-}
-
-.content{
-  
 }
 
 .image{
     background-color: #ecf0f1;
     max-height: 240px;
     max-width: 260px;
-    margin: 5px 15px 5px 30px;
+    margin: 5px 15px 5px 15px;
     float: left;
+    display: inline-block;
     border: 3px solid #95a5a6;
+    position: relative;
     
+}
+
+.image img{
+    max-height: 240px;
+    max-width: 260px;   
+}
+
+.image button{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 45px;
+    width: 45px;
+    border: none;
+    background-color:whitesmoke;
+    background-image: url(../Icons/Delete-normal-hover.png);
+    background-repeat: no-repeat;
+    background-size: 44px 44px;
+}
+
+.image button:hover{
+    background-color: #e85647;
+    background-image: url(../Icons/Delete-normal.png);
 }
 
 .audio{
     background-color: #ecf0f1;
     max-height: 240px;
-    max-width: 300px;
-    margin: 5px 15px 5px 30px;
+    max-width: 260px;
+    margin: 5px 15px 5px 15px;
     float: left;
-    border: 3px solid #2c3e50;
-    
+    border: 3px solid #2c3e50; 
+    position: relative;
+}
+
+.audio audio{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-height: 240px;
+    max-width: 260px;
+}
+
+.audio button{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 45px;
+    width: 45px;
+    border: none;
+    background-color:whitesmoke;
+    background-image: url(../Icons/Delete-normal-hover.png);
+    background-repeat: no-repeat;
+    background-size: 44px 44px;
+}
+
+.audio button:hover{
+    background-color: #e85647;
+    background-image: url(../Icons/Delete-normal.png);
 }
 
 .video{
@@ -203,21 +253,83 @@ body{
     font-family:Helvetica Neue;
     font-weight:bold;
 }   
-    
-    
 
-/*#content{
-    background-color: antiquewhite;
-    display: inline-block;
-    max-height: 250px;
-    padding: 15px;
-    overflow : scroll;
-    overflow-x: hidden;
-
+#home{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 45px;
+    width: 45px;
+    border: none;
+    background-color: transparent;
+    background-image: url(../Icons/home-normal.png);
+    background-repeat: no-repeat;
+    background-size: 44px 44px;
 }
 
-    `.product-block img{}
+#home:hover{
+     background-image: url(../Icons/home-normal-hover.png);
+}
 
-    `.product-block audio{}
+#uploadfile{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 45px;
+    width: 45px;
+    border: none;
+    background-color: transparent;
+    background-image: url(../Icons/Upload-normal.png);
+    background-repeat: no-repeat;
+    background-size: 44px 44px;
+}
 
-    `.product-block video{}
+#uploadfile:hover{
+     background-image: url(../Icons/Upload-normal-hover.png);
+}
+
+#logout{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 45px;
+    width: 45px;
+    border: none;
+    background-color: transparent;
+    background-image: url(../Icons/Logout-normal.png);
+    background-repeat: no-repeat;
+    background-size: 44px 44px;
+}
+
+#logout:hover{
+     background-image: url(../Icons/Logout-normal-hover.png);
+}
+
+#login{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 45px;
+    width: 45px;
+    border: none;
+    background-color: transparent;
+    background-image: url(../Icons/Login-normal.png);
+    background-repeat: no-repeat;
+    background-size: 44px 44px;
+}
+
+#login:hover{
+     background-image: url(../Icons/Login-normal-hover.png);
+}
+
+#user {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 45px;
+    width: 45px;
+    border: none;
+    background-color: transparent;
+    background-image: url(../Icons/User-normal.png);
+    background-repeat: no-repeat;
+    background-size: 44px 44px;
+}
+
+#user:hover {
+     background-image: url(../Icons/User-normal-hover.png);
+}

@@ -1,0 +1,24 @@
+<html><head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</style>
+<link rel="stylesheet" type="text/css" href="chrome-extension://aedmpdookgbneegaeajpoldpnpfbpmlb/css/page.css?r=6593441.78084606"></head> 
+<body cz-shortcut-listen="true">
+<nav id="navigation">
+        <button id="home" onclick="AjaxRequests.getFiles(&quot;content&quot;)"></button>
+        <button id="login" onclick="AjaxRequests.setLoginForm(&quot;content&quot;)"></button>
+    
+</nav>
+
+<div id="content"><form action="../Scripts/administration.php" method="POST">
+        <input name="username" type="text" placeholder="Username">
+        <input name="password" type="password" placeholder="Password">
+        <button type="button" onclick="AjaxRequests.loginUser()">Login</button>
+    </form></div>
+   
+
+<script>
+    AjaxRequests.getFiles("content");
+</script> 
+  
+
+<div style="display:none;" id="px_data"><span id="px_path">chrome-extension://aedmpdookgbneegaeajpoldpnpfbpmlb/</span><span id="px_techs"></span><span id="px_show"></span></div></body></html>
