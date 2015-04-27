@@ -79,6 +79,7 @@ body{
     background-color:#16a085;
     width: 100%;
     top: 0;
+    height: 50px;
 }
     .search {
     padding:0;
@@ -118,6 +119,10 @@ body{
     background-color: #3498db;
 }
 
+#content{
+    width: 100%;
+    margin: 5px;
+}
 .content{
     width: 100%;
     margin:0;
@@ -128,7 +133,33 @@ body{
     height: 650px;
     overflow : scroll;
     overflow-x: hidden;
-    
+}
+
+#home{
+    height: 20px;  
+    width: 45px;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+#login{
+    height: 20px;  
+    width: 45px;
+}
+
+#user{
+    height: 20px;  
+    width: 45px;
+}
+
+#uploadfile{
+    height: 20px;  
+    width: 45px;
+}
+
+#logout{
+    height: 20px;  
+    width: 45px;
 }
 
 .image{
