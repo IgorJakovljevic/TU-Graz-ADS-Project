@@ -143,12 +143,16 @@ body{
     
 }
 
+.image:hover{
+    border: 3px solid #e85647; 
+}
+
 .image img{
     max-height: 240px;
     max-width: 260px;   
 }
 
-.image button{
+.image button.delete {
     position: absolute;
     right: 0;
     top: 0;
@@ -161,9 +165,27 @@ body{
     background-size: 44px 44px;
 }
 
-.image button:hover{
+.image button.delete:hover{
     background-color: #e85647;
     background-image: url(../Icons/Delete-normal.png);
+}
+
+.image button.preview{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 45px;
+    width: 45px;
+    border: none;
+    background-color:whitesmoke;
+    background-image: url(../Icons/Preview-normal-hover.png);
+    background-repeat: no-repeat;
+    background-size: 44px 44px;
+}
+
+.image button.preview:hover{
+    background-color: #e85647;
+    background-image: url(../Icons/Preview-normal.png);
 }
 
 .audio{
@@ -176,6 +198,10 @@ body{
     position: relative;
 }
 
+.audio:hover{
+    border: 3px solid #e85647; 
+}
+
 .audio audio{
     position: absolute;
     bottom: 0;
@@ -184,7 +210,15 @@ body{
     max-width: 260px;
 }
 
-.audio button{
+#productOverview .audio button{
+    display: none;
+}
+
+#productOverview .image button{
+    display: none;
+}
+
+.audio button.delete{
     position: absolute;
     right: 0;
     top: 0;
@@ -197,9 +231,27 @@ body{
     background-size: 44px 44px;
 }
 
-.audio button:hover{
+.audio button.delete:hover{
     background-color: #e85647;
     background-image: url(../Icons/Delete-normal.png);
+}
+
+.audio button.preview{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 45px;
+    width: 45px;
+    border: none;
+    background-color:whitesmoke;
+    background-image: url(../Icons/Preview-normal-hover.png);
+    background-repeat: no-repeat;
+    background-size: 44px 44px;
+}
+
+.audio button.preview:hover{
+    background-color: #e85647;
+    background-image: url(../Icons/Preview-normal.png);
 }
 
 .video{
@@ -210,19 +262,21 @@ body{
     border: 3px solid #7f8c8d;
 }
 
-/*
-.product-block img{
-    display: inline-block;
+.exitButton {
+    height: 45px;
+    width: 45px;
+    border: none;
+    background-color:whitesmoke;
+    background-image: url(../Icons/Close-normal-hover.png);
+    background-repeat: no-repeat;
+    background-size: 44px 44px;
 }
 
-.product-block audio{
-    display: inline-block;
+.exitButton:hover {
+    background-image: url(../Icons/Close-normal.png);
+    background-color: #e85647;
 }
 
-.product-block video{
-    display: inline-block;
-}
-*/
 #footer{
     background-color: #16a085;
     text-align: center;

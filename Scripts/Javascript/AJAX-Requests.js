@@ -31,9 +31,6 @@ var AjaxRequests = {
             if(result.files[i].fileType === "1"){
                 DOMElement.setAttribute('class', 'image');
                 DOMElement.innerHTML += '<img src="../'+result.files[i].location + '"/>';
-                var deleteButton = document.createElement("button");
-                deleteButton.setAttribute("onclick",'AjaxRequests.deleteFile("'+result.files[i].id+'")');
-                DOMElement.appendChild(deleteButton);
             }
             
             if(result.files[i].fileType === "2"){
@@ -45,9 +42,7 @@ var AjaxRequests = {
                 audioElement += '" type="audio/mpeg" />';
                 audioElement += '</audio>';               
                 DOMElement.innerHTML += audioElement;
-                var deleteButton = document.createElement("button");
-                deleteButton.setAttribute("onclick",'AjaxRequests.deleteFile("'+result.files[i].id+'")');
-                 DOMElement.appendChild(deleteButton);
+             
             }
             
             if(result.files[i].fileType === "3"){
@@ -59,6 +54,16 @@ var AjaxRequests = {
             videoElement += '</video>';
             DOMElement.innerHTML += videoElement;
             }
+            
+            var deleteButton = document.createElement("button");
+            deleteButton.className = "delete";
+            deleteButton.setAttribute("onclick",'AjaxRequests.deleteFile("'+result.files[i].id+'")');
+            DOMElement.appendChild(deleteButton);
+            
+            var previewButton = document.createElement("button");
+            previewButton.className = "preview";
+            previewButton.setAttribute("onclick",'AjaxRequests.previewFile("'+result.files[i].id+'")');
+            DOMElement.appendChild(previewButton);
             
             document.getElementById(htmlNodeElement).appendChild(DOMElement);
 
@@ -115,7 +120,6 @@ var AjaxRequests = {
         {
         var DOMElement = document.getElementById(htmlNodeElement);    
         var result = JSON.parse(xmlhttp.responseText);
-        console.log(result);
         DOMElement.innerHTML = result.userForm;
         }
       }
@@ -317,7 +321,9 @@ var AjaxRequests = {
         //xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         xmlhttp.send(data);    
     },
-    
+    /////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////// 
     deleteFile : function(id) {
         var file = document.getElementById('file-'+id).remove();
 
@@ -343,5 +349,83 @@ var AjaxRequests = {
         xmlhttp.open("DELETE","/"+rootFolder+"/Scripts/file.php?id="+id,true);
         //xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         xmlhttp.send();    
+    },
+    /////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////// 
+    previewFile : function(id) {
+        var file = document.getElementById('file-'+id);
+        var previewPopup = document.getElementById('productOverview');
+        previewPopup.style.display = "block";
+        previewPopup.style.position ="fixed";
+        previewPopup.style.top = 0;
+        previewPopup.style.width = "80%";
+        previewPopup.style.marginLeft= "10%";
+        previewPopup.style.marginTop = "5%";
+        previewPopup.style.border = "1px solid black";
+        previewPopup.style.height = (window.innerHeight*0.8) + "px";
+        
+        document.getElementById('productContent').innerHTML = '<div class="'+ file.className +'">' + file.innerHTML + '</div>';
+        
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+          {// code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp=new XMLHttpRequest();
+          }
+        else
+          {// code for IE6, IE5
+          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+          }
+
+        xmlhttp.onreadystatechange=function()
+          {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+             var result = JSON.parse(xmlhttp.responseText);
+             var itemsLength = result.comments.length; 
+                for(var i = 0; i < itemsLength; i++){
+                    document.getElementById("comments").innerHTML += '<p>' +result.comments[i].content +'</p>';
+                }
+             
+            }
+          }
+        document.getElementById('commentButton').setAttribute('onclick','AjaxRequests.commentFile('+id+')');
+        xmlhttp.open("GET","/"+rootFolder+"/Scripts/comments.php?fileId="+id,true);
+        //xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlhttp.send();    
+    },
+    /////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////// 
+    commentFile :function(id){
+        var comment = document.getElementById('comment').value;
+        var requestString = "";
+        requestString += "fileId=" + id;
+        requestString += "&content=" + comment;
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+          {// code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp=new XMLHttpRequest();
+          }
+        else
+          {// code for IE6, IE5
+          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+          }
+
+        xmlhttp.onreadystatechange=function()
+          {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+             document.getElementById("comments").innerHTML += '<p>' + comment +'</p>';
+            }
+          }
+        console.log(requestString);
+        xmlhttp.open("POST","/"+rootFolder+"/Scripts/comments.php",true);
+        xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlhttp.send(requestString);    
+    },
+    
+    closePreview: function(){
+    document.getElementById('productOverview').style.display = "none";
     }
 };

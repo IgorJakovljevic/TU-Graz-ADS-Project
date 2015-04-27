@@ -24,7 +24,17 @@ session_start();
 <div id="content">
     
 </div>
-   
+    
+<div id="productOverview" style="margin:auto;display:none; background-color:white;">
+<div style="width=100%;height:40px; text-align:right">
+    <button class="exitButton" onclick="AjaxRequests.closePreview()">
+    </button>
+</div>
+<div id="productContent" ></div>
+<div id="comments"></div>
+<textarea id="comment"></textarea><br/>
+<button id="commentButton">Comment</button>
+</div>   
 
 <script>
     AjaxRequests.getFiles("content");
