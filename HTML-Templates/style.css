@@ -118,14 +118,14 @@ body{
     background-color: #3498db;
 }
 
-#content{
+.content{
     width: 100%;
     margin:0;
     background-color: white;
     border: 2px solid #DDD;
     margin: 5px 0 5px 0;
     display: block;
-    height: 450px;
+    height: 650px;
     overflow : scroll;
     overflow-x: hidden;
     
@@ -135,7 +135,7 @@ body{
     background-color: #ecf0f1;
     max-height: 240px;
     max-width: 260px;
-    margin: 5px 15px 5px 15px;
+    margin: 5px 15px 5px 35px;
     float: left;
     display: inline-block;
     border: 3px solid #95a5a6;
@@ -144,7 +144,7 @@ body{
 }
 
 .image img{
-    max-height: 240px;
+    height: 240px;
     max-width: 260px;   
 }
 
@@ -170,12 +170,16 @@ body{
     background-color: #ecf0f1;
     max-height: 240px;
     max-width: 260px;
-    margin: 5px 15px 5px 15px;
+    margin: 5px 15px 5px 35px;
     float: left;
     border: 3px solid #2c3e50; 
     position: relative;
 }
 
+.audio img{
+    max-height: 240px;
+    width: 260px;
+}
 .audio audio{
     position: absolute;
     bottom: 0;
@@ -210,6 +214,9 @@ body{
     border: 3px solid #7f8c8d;
 }
 
+.video video{
+    height: 240px;
+    max-width: 320px;
 /*
 .product-block img{
     display: inline-block;
@@ -223,6 +230,7 @@ body{
     display: inline-block;
 }
 */
+
 #footer{
     background-color: #16a085;
     text-align: center;
