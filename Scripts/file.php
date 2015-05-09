@@ -50,11 +50,27 @@ case 'POST':
     
 case 'DELETE':
     $id = $_REQUEST['id'];
+    $query = "SELECT * FROM file WHERE id = ".$id;
+    if ($result = $conn->query($query)) {
+        
+    while ($row = $result->fetch_row()) {
+            $file = "../".$row[1];
+            unlink($file);
+    }
+        
+    $result->close();
+    }
     
-    if($stmt = $conn->prepare("DELETE FROM file WHERE id = ?") ){
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $stmt->close();
+    if($stmt = $conn->prepare("DELETE FROM comment WHERE File_id = ?") ){
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $stmt->close();
+    }
+
+    if($stmt2 = $conn->prepare("DELETE FROM file WHERE id = ?") ){
+    $stmt2->bind_param("i", $id);
+    $stmt2->execute();
+    $stmt2->close();
     }
 
     break;

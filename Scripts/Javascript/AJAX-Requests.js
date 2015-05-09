@@ -383,6 +383,7 @@ var AjaxRequests = {
             {
              var result = JSON.parse(xmlhttp.responseText);
              var itemsLength = result.comments.length; 
+	     document.getElementById("comments").innerHTML = "";
                 for(var i = 0; i < itemsLength; i++){
                     document.getElementById("comments").innerHTML += '<p>' +result.comments[i].content +'</p>';
                 }
