@@ -103,6 +103,63 @@ var AjaxRequests = {
     /////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////
+    setUserForm : function(htmlNodeElement){
+       var xmlhttp;
+    if (window.XMLHttpRequest)
+      {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+      }
+    else
+      {// code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+        
+    xmlhttp.onreadystatechange=function()
+      {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+        var DOMElement = document.getElementById(htmlNodeElement);    
+        var result = JSON.parse(xmlhttp.responseText);
+        DOMElement.innerHTML = result.userForm;
+        AjaxRequests.fillUserForm();
+        }
+      }
+    xmlhttp.open("GET","/"+rootFolder+"/ui/Partials/_userForm.php",true);
+    xmlhttp.send();
+    },
+     /////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////
+    fillUserForm : function(){
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+      {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+      }
+    else
+      {// code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+        
+    xmlhttp.onreadystatechange=function()
+      {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        { 
+        var result = JSON.parse(xmlhttp.responseText);
+        document.getElementsByName('firstname')[0].value = result.user.firstname;
+        document.getElementsByName('lastname')[0].value = result.user.lastname;
+        document.getElementsByName('password')[0].value = "";
+        document.getElementsByName('email')[0].value = result.user.email;
+        document.getElementsByName('phonenumber')[0].value = result.user.phonenumber;
+        }
+      }
+    var userId = document.getElementById("userId").getAttribute("data-user-id");
+    xmlhttp.open("GET","/"+rootFolder+"/Scripts/user.php?userid="+userId,true);
+    xmlhttp.send();
+    },
+    /////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////
     setLoginForm : function(htmlNodeElement){
        var xmlhttp;
     if (window.XMLHttpRequest)
@@ -232,6 +289,7 @@ var AjaxRequests = {
              uploadbutton.setAttribute('id','uploadfile')
              
              var userbutton = document.createElement("button");
+             userbutton.setAttribute('onclick','AjaxRequests.setUserForm("content")');
              userbutton.setAttribute('id','user')
              
             document.getElementById('navigation').appendChild(userbutton);
