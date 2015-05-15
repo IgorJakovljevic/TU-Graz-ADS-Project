@@ -47,25 +47,44 @@ case 'GET':
     //ToDo: Else if user doesn't exist create a error json report
     break;
     
-case 'POST': 
-   
-    $username = $_POST['username'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $phoneNumber = $_POST['phoneNumber'];
-    $password = $_POST['password'];
-   
-    if($stmt = $conn -> prepare("INSERT INTO users (username, firstname, lastname, password, email, phoneNumber) VALUES (?, ?, ?, ?, ?, ?)")){
-        /* Bind parameters s -> String, b -> Blob etc.*/
-        $stmt -> bind_param("ssssss", $username, $firstname, $lastname, $password, $email, $phoneNumber);
-        $stmt -> execute(); 
+    case 'POST': 
+    
+    if($_POST["Update"]){
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $email = $_POST['email'];
+        $phoneNumber = $_POST['phonenumber'];
+        $password = $_POST['password'];
 
-        $stmt -> fetch();
-        $stmt -> close();
-        
-        echo json_encode(array("result" => "true"));
-                       
+        if($stmt = $conn -> prepare("UPDATE users SET firstname = ?, lastname = ?, password = ?, email = ?, phoneNumber = ? WHERE id = ?")){
+            /* Bind parameters s -> String, b -> Blob etc.*/
+            $stmt -> bind_param("ssssss", $firstname, $lastname, $password, $email, $phoneNumber, $_SESSION['userId']);
+            $stmt -> execute(); 
+
+            $stmt -> fetch();
+            $stmt -> close();                       
+        }
+        break;
+    }
+    else{
+        $username = $_POST['username'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $email = $_POST['email'];
+        $phoneNumber = $_POST['phoneNumber'];
+        $password = $_POST['password'];
+
+        if($stmt = $conn -> prepare("INSERT INTO users (username, firstname, lastname, password, email, phoneNumber) VALUES (?, ?, ?, ?, ?, ?)")){
+            /* Bind parameters s -> String, b -> Blob etc.*/
+            $stmt -> bind_param("ssssss", $username, $firstname, $lastname, $password, $email, $phoneNumber);
+            $stmt -> execute(); 
+
+            $stmt -> fetch();
+            $stmt -> close();
+
+            echo json_encode(array("result" => "true"));
+
+        }
     }
     break;
 default:

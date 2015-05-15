@@ -93,7 +93,6 @@ var AjaxRequests = {
         {
         var DOMElement = document.getElementById(htmlNodeElement);    
         var result = JSON.parse(xmlhttp.responseText);
-        console.log(result);
         DOMElement.innerHTML = result.userForm;
         }
       }
@@ -157,6 +156,38 @@ var AjaxRequests = {
     xmlhttp.open("GET","/"+rootFolder+"/Scripts/user.php?userid="+userId,true);
     xmlhttp.send();
     },
+         /////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////
+    changeUserData : function(){
+    var xmlhttp;
+    var requestString = "";
+    requestString += "firstname=" + document.getElementsByName('firstname')[0].value;
+    requestString += "&lastname=" + document.getElementsByName('lastname')[0].value;
+    requestString += "&password=" + document.getElementsByName('password')[0].value;
+    requestString += "&email=" + document.getElementsByName('email')[0].value;
+    requestString += "&phonenumber=" + document.getElementsByName('phonenumber')[0].value; 
+    requestString += "&Update=true"; 
+    if (window.XMLHttpRequest)
+      {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+      }
+    else
+      {// code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+        
+    xmlhttp.onreadystatechange=function()
+      {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        { 
+        document.getElementById("content").innerHTML = "<h1>User has been modified.</h1>"       
+        }
+      }
+    xmlhttp.open("POST","/"+rootFolder+"/Scripts/user.php",true);
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlhttp.send(requestString);
+    },
     /////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////
@@ -203,7 +234,6 @@ var AjaxRequests = {
             {
             var DOMElement = document.getElementById(htmlNodeElement);    
             var result = JSON.parse(xmlhttp.responseText);
-            console.log(result);
             DOMElement.innerHTML = result.userForm;
             }
           }
@@ -370,7 +400,6 @@ var AjaxRequests = {
           {
           if (xmlhttp.readyState==4 && xmlhttp.status==200)
             {
-             console.log(file.files[0]);
              document.getElementById("content").innerHTML = "<h1> File "+file.files[0].name+" has been uploaded!</h1>";
             }
           }
@@ -399,7 +428,6 @@ var AjaxRequests = {
           {
           if (xmlhttp.readyState==4 && xmlhttp.status==200)
             {
-             console.log(file.files[0]);
              document.getElementById("content").innerHTML = "<h1> File "+file.files[0].name+" has been uploaded!</h1>";
             }
           }
@@ -478,7 +506,6 @@ var AjaxRequests = {
              document.getElementById("comments").innerHTML += '<p>' + comment +'</p>';
             }
           }
-        console.log(requestString);
         xmlhttp.open("POST","/"+rootFolder+"/Scripts/comments.php",true);
         xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         xmlhttp.send(requestString);    

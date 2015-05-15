@@ -131,6 +131,20 @@ body{
     
 }
 
+    #content form{
+        width: 40%;
+        margin: auto;
+    }
+
+    #content form div{ 
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    #content form div label{ 
+        width: 50px !important;
+    }
+
 .image{
     background-color: #ecf0f1;
     max-height: 240px;
@@ -387,3 +401,4 @@ body{
 #user:hover {
      background-image: url(../Icons/User-normal-hover.png);
 }
+

@@ -4,8 +4,8 @@ $form = '';
 
 if(!isSet($_SESSION['userId'])){ 
     $form = '<form action="../Scripts/administration.php" method="POST">
-        <input name="username" type="text" placeholder="Username">
-        <input name="password" type="password" placeholder="Password">
+        <div><input name="username" type="text" placeholder="Username"></div>
+        <div><input name="password" type="password" placeholder="Password"></div>
         <button type="button" onclick="AjaxRequests.loginUser()">Login</button>
     </form>';
 } else {

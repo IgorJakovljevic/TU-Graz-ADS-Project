@@ -7,12 +7,12 @@ if(isSet($_SESSION['userId'])){
     
     $form = '<form action="../Scripts/administration.php" method="POST">
         <span style="display:none" id="userId" data-user-id="'.$_SESSION['userId'].'"></span>
-        <input name="firstname" type="text">
-        <input name="lastname" type="text">
-        <input name="password" type="password">
-        <input name="email" type="text">
-        <input name="phonenumber" type="text">
-        <button type="button" onclick="AjaxRequests.chaneDataUser()">Change User Data</button>
+        <div><label>First name: </label><input name="firstname" type="text"></div>
+        <div><label>Last name: </label><input name="lastname" type="text"></div>
+        <div><label>Password: </label><input name="password" type="password"></div>
+        <div><label>Email: </label><input name="email" type="text"></div>
+        <div><label>Phone number: </label><input name="phonenumber" type="text"></div>
+        <button type="button" onclick="AjaxRequests.changeUserData()">Change User Data</button>
     </form>';
 } 
 
