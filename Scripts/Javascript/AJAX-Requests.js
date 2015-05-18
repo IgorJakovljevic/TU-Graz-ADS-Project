@@ -311,16 +311,19 @@ var AjaxRequests = {
              var logoutbutton = document.createElement("button");
 
              logoutbutton.setAttribute('onclick','AjaxRequests.logoutUser()')
-             logoutbutton.setAttribute('id','logout')
+             logoutbutton.setAttribute('id','logout');
+             logoutbutton.setAttribute('title','Logout');
              
              var uploadbutton = document.createElement("button");
 
              uploadbutton.setAttribute('onclick','AjaxRequests.setUploadFileForm("content")')
-             uploadbutton.setAttribute('id','uploadfile')
+             uploadbutton.setAttribute('id','uploadfile');
+             uploadbutton.setAttribute('title','Upload');
              
              var userbutton = document.createElement("button");
              userbutton.setAttribute('onclick','AjaxRequests.setUserForm("content")');
-             userbutton.setAttribute('id','user')
+             userbutton.setAttribute('id','user');
+             userbutton.setAttribute('title','User');
              
             document.getElementById('navigation').appendChild(userbutton);
              document.getElementById('navigation').appendChild(uploadbutton);
@@ -357,6 +360,7 @@ var AjaxRequests = {
 
              loginbutton.setAttribute('onclick','AjaxRequests.setLoginForm("content")')
              loginbutton.setAttribute('id','login');
+             loginbutton.setAttribute('title','Login'); 
                 
              
              document.getElementById('navigation').appendChild(loginbutton);

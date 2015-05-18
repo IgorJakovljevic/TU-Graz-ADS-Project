@@ -9,13 +9,13 @@ session_start();
 </head> 
 <body>
 <nav id="navigation">
-    <button id="home" onclick='AjaxRequests.getFiles("content")'></button>
+    <button title="Home" id="home" onclick='AjaxRequests.getFiles("content")'></button>
     <?php if(!isSet($_SESSION['userId'])){ ?>
-    <button id="login" onclick='AjaxRequests.setLoginForm("content")'></button>
+    <button title="Login" id="login" onclick='AjaxRequests.setLoginForm("content")'></button>
     <?php } else {?>
-     <button id="user" onclick='AjaxRequests.setUserForm("content")'></button>
-     <button id="uploadfile" onclick='AjaxRequests.setUploadFileForm("content")'></button>
-     <button id="logout" onclick='AjaxRequests.logoutUser()'>
+     <button title="User" id="user" onclick='AjaxRequests.setUserForm("content")'></button>
+     <button title="Upload" id="uploadfile" onclick='AjaxRequests.setUploadFileForm("content")'></button>
+     <button title="Logout" id="logout" onclick='AjaxRequests.logoutUser()'>
     </button>
     <?php }?>
 
