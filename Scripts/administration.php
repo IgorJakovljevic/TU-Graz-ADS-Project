@@ -40,10 +40,11 @@ case 'POST':
         //  ToDo : Redirect to Admin Login Page
     }
     else {
-   
+  
     $username = $_POST['username'];
     $password = $_POST['password'];
-   
+     if(!$username || !$password)
+         break;
     if($stmt = $conn -> prepare("SELECT id FROM users WHERE username=? AND password=?")){
         /* Bind parameters s -> String, b -> Blob etc.*/
         $stmt -> bind_param("ss", $username, $password);
@@ -53,10 +54,10 @@ case 'POST':
         if($userId){
             $_SESSION['userId'] = $userId;
             $_SESSION['username'] = $username;
+            echo json_encode(array('result' => $username." succesfully loged in."));
         }
         
-        //ToDo: Redirect with error that the user doesn't exist
-        
+        //ToDo: Redirect with error that the user doesn't exist        
         $stmt -> close();
     }                   
     }
