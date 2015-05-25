@@ -251,6 +251,7 @@ var AjaxRequests = {
         var password = document.getElementsByName('password')[0].value;
         requestString += "&password=" + password;
         var xmlhttp;
+
         if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
         } else { // code for IE6, IE5
@@ -290,34 +291,39 @@ var AjaxRequests = {
                 document.getElementById("content").innerHTML = "<h1>" + JSONResponse.result + "</h1>";
             }
         }
-
         xmlhttp.open("POST", "Scripts/administration.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(requestString);
     },
-    logoutUser: function () {
+    logoutUser : function() {
+        
+        if (window.XMLHttpRequest)
+          {// code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp=new XMLHttpRequest();
+          }
+        else
+          {// code for IE6, IE5
+          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+          }
 
-        if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else { // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
+        xmlhttp.onreadystatechange=function()
+          {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+             document.getElementById('logout').remove();
+             document.getElementById('user').remove();
+             document.getElementById('uploadfile').remove();   
+                
+             var loginbutton = document.createElement("button");
 
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                var navigation = document.getElementById('navigation');
-                navigation.removeChild(document.getElementById('logout'));
-                navigation.removeChild(document.getElementById('user'));
-                navigation.removeChild(document.getElementById('uploadfile'));
+             loginbutton.setAttribute('onclick','AjaxRequests.setLoginForm("content")')
+             loginbutton.setAttribute('id','login');
+             loginbutton.setAttribute('title','Login'); 
+                
+             
+             document.getElementById('navigation').appendChild(loginbutton);
+             document.getElementById("content").innerHTML = "<h1> You have logged out.</h1>";
 
-                var loginbutton = document.createElement("button");
-
-                loginbutton.setAttribute('onclick', 'AjaxRequests.setLoginForm("content")')
-                loginbutton.setAttribute('id', 'login');
-
-
-                document.getElementById('navigation').appendChild(loginbutton);
-                document.getElementById("content").innerHTML = "<h1> You have logged out.</h1>";
             }
         }
 
