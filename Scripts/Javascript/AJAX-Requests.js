@@ -62,7 +62,7 @@ var AjaxRequests = {
 
                 }
             }
-        }
+        };
         xmlhttp.open("GET", "Scripts/file.php", true);
         xmlhttp.send();
     },
@@ -83,7 +83,7 @@ var AjaxRequests = {
                 var result = JSON.parse(xmlhttp.responseText);
                 DOMElement.innerHTML = result.userForm;
             }
-        }
+        };
         xmlhttp.open("GET", "Partials/_user.php", true);
         xmlhttp.send();
     },
@@ -105,7 +105,7 @@ var AjaxRequests = {
                 DOMElement.innerHTML = result.userForm;
                 AjaxRequests.fillUserForm();
             }
-        }
+        };
         xmlhttp.open("GET", "Partials/_userForm.php", true);
         xmlhttp.send();
     },
@@ -129,7 +129,7 @@ var AjaxRequests = {
                 document.getElementsByName('email')[0].value = result.user.email;
                 document.getElementsByName('phonenumber')[0].value = result.user.phonenumber;
             }
-        }
+        };
         var userId = document.getElementById("userId").getAttribute("data-user-id");
         xmlhttp.open("GET", "Scripts/user.php?userid=" + userId, true);
         xmlhttp.send();
@@ -154,9 +154,9 @@ var AjaxRequests = {
 
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("content").innerHTML = "<h1>User has been modified.</h1>"
+                document.getElementById("content").innerHTML = "<h1>User has been modified.</h1>";
             }
-        }
+        };
         xmlhttp.open("POST", "Scripts/user.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(requestString);
@@ -178,7 +178,7 @@ var AjaxRequests = {
                 var result = JSON.parse(xmlhttp.responseText);
                 DOMElement.innerHTML = result.userForm;
             }
-        }
+        };
         xmlhttp.open("GET", "Partials/_admin.php", true);
         xmlhttp.send();
     },
@@ -199,7 +199,7 @@ var AjaxRequests = {
                 var result = JSON.parse(xmlhttp.responseText);
                 DOMElement.innerHTML = result.userForm;
             }
-        }
+        };
         xmlhttp.open("GET", "Partials/_uploadFile.php", true);
         xmlhttp.send();
     },
@@ -233,7 +233,7 @@ var AjaxRequests = {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("content").innerHTML = "<h1>" + userName + " created!</h1>";
             }
-        }
+        };
 
         xmlhttp.open("POST", "Scripts/user.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -272,17 +272,17 @@ var AjaxRequests = {
 
                 var logoutbutton = document.createElement("button");
 
-                logoutbutton.setAttribute('onclick', 'AjaxRequests.logoutUser()')
-                logoutbutton.setAttribute('id', 'logout')
+                logoutbutton.setAttribute('onclick', 'AjaxRequests.logoutUser()');
+                logoutbutton.setAttribute('id', 'logout');
 
                 var uploadbutton = document.createElement("button");
 
-                uploadbutton.setAttribute('onclick', 'AjaxRequests.setUploadFileForm("content")')
-                uploadbutton.setAttribute('id', 'uploadfile')
+                uploadbutton.setAttribute('onclick', 'AjaxRequests.setUploadFileForm("content")');
+                uploadbutton.setAttribute('id', 'uploadfile');
 
                 var userbutton = document.createElement("button");
                 userbutton.setAttribute('onclick', 'AjaxRequests.setUserForm("content")');
-                userbutton.setAttribute('id', 'user')
+                userbutton.setAttribute('id', 'user');
 
                 document.getElementById('navigation').appendChild(userbutton);
                 document.getElementById('navigation').appendChild(uploadbutton);
@@ -290,13 +290,13 @@ var AjaxRequests = {
 
                 document.getElementById("content").innerHTML = "<h1>" + JSONResponse.result + "</h1>";
             }
-        }
+        };
         xmlhttp.open("POST", "Scripts/administration.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(requestString);
     },
     logoutUser : function() {
-        
+        var xmlhttp;
         if (window.XMLHttpRequest)
           {// code for IE7+, Firefox, Chrome, Opera, Safari
           xmlhttp=new XMLHttpRequest();
@@ -316,7 +316,7 @@ var AjaxRequests = {
                 
              var loginbutton = document.createElement("button");
 
-             loginbutton.setAttribute('onclick','AjaxRequests.setLoginForm("content")')
+             loginbutton.setAttribute('onclick','AjaxRequests.setLoginForm("content")');
              loginbutton.setAttribute('id','login');
              loginbutton.setAttribute('title','Login'); 
                 
@@ -325,7 +325,7 @@ var AjaxRequests = {
              document.getElementById("content").innerHTML = "<h1> You have logged out.</h1>";
 
             }
-        }
+        };
 
         xmlhttp.open("POST", "Scripts/administration.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -360,7 +360,7 @@ var AjaxRequests = {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("content").innerHTML = "<h1> File " + file.files[0].name + " has been uploaded!</h1>";
             }
-        }
+        };
 
         xmlhttp.open("POST", "Scripts/file.php", true);
         //xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -382,7 +382,7 @@ var AjaxRequests = {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
             }
-        }
+        };
 
         xmlhttp.open("DELETE", "Scripts/file.php?id=" + id, true);
         xmlhttp.send();
@@ -421,7 +421,7 @@ var AjaxRequests = {
                 }
 
             }
-        }
+        };
         document.getElementById('commentButton').setAttribute('onclick', 'AjaxRequests.commentFile(' + id + ')');
         xmlhttp.open("GET", "Scripts/comments.php?fileId=" + id, true);
         //xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -446,7 +446,7 @@ var AjaxRequests = {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("comments").innerHTML += '<p>' + comment + '</p>';
             }
-        }
+        };
         xmlhttp.open("POST", "Scripts/comments.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(requestString);
